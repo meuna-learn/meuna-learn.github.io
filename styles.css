@@ -38,7 +38,7 @@ nav a{
     white-space: nowrap; /* Prevents text from breaking */
 }
 nav a:hover{
-    background-color: rgb(129, 119, 108);
+    background-color: rgb(168, 144, 118);
     transition: 0.4s ease-in-out;
 }
 
