@@ -1,9 +1,13 @@
 body{
     background-color: #EDEFEE;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    margin: 3% 3rem 3% 3rem;
-    min-width: 400px;
+    margin: 3%;
+    min-width: auto; /* Allow full responsiveness */
+    max-width: 100vw; /* Prevent horizontal overflow */
+    overflow-x: hidden; /* Hide extra width if any */
 }
+
+/* Header Nav Part */
 header{
     max-width: 40rem;
     margin: auto;
@@ -24,48 +28,44 @@ nav div{
     justify-content: center;
 }
 nav div div{
-    flex: 0;
     margin-left: 0.7rem;
     margin-right: 0.7rem;
+    flex-shrink: 1; /* Allows shrinking but maintains alignment */
+    min-width: fit-content; /* Prevents text from getting too small */
 }
-a{
+nav a{
     text-decoration: none;
     color: white;
-    font-size: 1.6rem;
+    font-size: clamp(1.5rem, 5vw, 1.6rem);
+    white-space: nowrap; /* Prevents text from breaking */
 }
+
+/* Main Part */
 section{
     margin-top: 1.2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 article{
     flex: 1;
     position: relative; /* Makes it the reference for absolute positioning */
     overflow: hidden;
 }
-.mainsection article img {
-    width: 100%;
-    height: 300px; /* Set a fixed height to crop */
-    object-fit: cover; /* Ensures the image is cropped from the bottom */
-    display: block;
-    border-radius: 1.2rem;
-}
-.secondsection article img {
-    width: 100%;
-    height: auto; /* Let height adjust naturally */
-    max-height: 300px; /* Limit maximum height */
-    object-fit: contain; /* Prevent cropping */
-    border-radius: 0.3rem;
-}
-
-article h1 {
+.mainsection article h1 {
     position: absolute;
     top: 5%;
     left: 5%;
     color: white;
     font-size: clamp(1.5rem, 5vw, 3rem); /*awesome responsive text feature */
     max-width: 90%;
+}
+.mainsection article img {
+    width: 100%;
+    height: 300px; /* Set a fixed height to crop */
+    object-fit: cover; /* Ensures the image is cropped from the bottom */
+    border-radius: 1.2rem;
 }
 .mainsection #h1para{
     position: absolute;
@@ -80,23 +80,35 @@ article h1 {
     background-color: bisque;
     padding: 1rem;
     border-radius: 1.2rem;
+    flex: 1 0 300px; /* Ensures responsive width */
+    max-width: 100%; /* Prevents overflow */
 }
 .secondsection article h2{
-    font-size: clamp(0.9rem, 2vw, 2rem);
+    font-size: clamp(0.9rem, 5vw, 2rem);
+}
+.secondsection article img{
+    width: 100%;
+    height: auto; /* Let height adjust naturally */
+    max-height: 300px; /* Limit maximum height */
+    border-radius: 0.9rem;
 }
 .secondsection article p{
     font-size: clamp(0.8rem, 1vw, 2rem);
     word-wrap: break-word;
 }
+.openinghours_div{
+    max-width: 10rem;
+    margin: auto;
+}
 
+
+/* Footer Part */
 footer {
     display: flex;
     align-items: center; /* Align content properly */
     justify-content: space-between; /* Distribute space properly */
     padding-top: 2rem;
 }
-
-/* Fix footer image */
 footer .footerdivimage {
     max-width: 5rem; /* Set a reasonable max-width */
     margin-right: 1rem;
@@ -112,5 +124,4 @@ footer .footerdivcopyright{
 }
 footer .footerdivcopyright #lineabovecopyright{
     border-top: 3px solid black;
-    padding-bottom: 10px;
 }
